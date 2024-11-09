@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
 // import React from "react";
+import * as Location from "expo-location";
 import {
   StyleSheet,
   Text,
@@ -14,6 +16,38 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 
 console.log(SCREEN_WIDTH);
 export default function App() {
+  const [location, setLocation] = useState<Location.LocationObject | null>(
+    null
+  );
+  const [ok, setOk] = useState(true);
+  const ask = async () => {
+    try {
+      const { granted } = await Location.requestForegroundPermissionsAsync();
+      console.log(granted);
+      if (!granted) {
+        setOk(false);
+        return;
+      }
+      const {
+        coords: { latitude, longitude },
+      } = await Location.getCurrentPositionAsync({
+        accuracy: 5,
+      });
+      const location = await Location.reverseGeocodeAsync(
+        {
+          latitude,
+          longitude,
+        },
+        { useGoogleMaps: false }
+      );
+      console.log(location);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    ask();
+  }, []);
+
   return (
     <View style={styles.container}>
       {/* <Text>Open up App.tsx to start working on your app!</Text>
