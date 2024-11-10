@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "StoreStockChecker",
+    "name": "JAMWEATHER",
     "slug": "StoreStockChecker",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/appicon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
