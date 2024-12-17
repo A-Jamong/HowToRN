@@ -22,8 +22,6 @@ const icons: Record<string, string> = {
   온흐림: "cloudy",
   맑음: "day-sunny",
 };
-
-// console.log(SCREEN_WIDTH);
 export default function App() {
   const [city, setCity] = useState("...로딩중!");
   const [days, setDays] = useState<any[]>([]);
