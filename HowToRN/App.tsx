@@ -14,6 +14,7 @@ import {
   Image,
 } from "react-native";
 import Fontisto from "@expo/vector-icons/Fontisto";
+
 const SCREEN_WIDTH = Dimensions.get("window").width;
 // 이건 무료 api라 괜찮지만 원래 키 어플 안에 넣으면 안됨!
 const API_KEY = "f407cb310fddb637216a3b94b9ca4a74";
